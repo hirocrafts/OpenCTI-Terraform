@@ -44,9 +44,9 @@ opencti_openid_mapping_config = {
 ####################
 # -- OpenSearch -- #
 ####################
-opensearch_engine_version               = "OpenSearch_1.3"
+opensearch_engine_version               = "OpenSearch_2.9"
 opensearch_master_count                 = 3
-opensearch_master_instance_type         = "t3.small.search" # Production = m6g.large.search
+opensearch_master_instance_type         = "t3.small.search" # Production = m6g.large.search 
 opensearch_data_node_instance_count     = 3
 opensearch_data_node_instance_type      = "t3.small.search" # Production = r6g.large.search
 opensearch_template_primary_shard_count = 2                 # We recommend 2 Primary Shards per index to allow for horizontal scaling across data nodes
@@ -65,8 +65,10 @@ opensearch_auto_tune = {
 # -- Elasticache -- #
 #####################
 elasticache_instance_type                  = "cache.t4g.small"
+elasticache_node_groups_count              = 1
 elasticache_replication_count              = 1
-elasticache_redis_version                  = "6.2"
+elasticache_redis_version                  = "7.0"
+elasticache_parameter_group_name           = "default.redis7"
 elasticache_redis_port                     = "6379"
 elasticache_redis_snapshot_retention_limit = 1
 elasticache_redis_snapshot_time            = "18:00-20:00"
@@ -78,7 +80,7 @@ redis_trimming                             = 200000 # Based off analysis
 ##################
 rabbitmq_management_port = 15672 # Do not change as the default can not be overridden
 rabbitmq_node_port       = 5672
-rabbitmq_image_tag       = "3.10-management"
+rabbitmq_image_tag       = "3.12.6-management"
 rabbitmq_cpu_size        = 1024
 rabbitmq_memory_size     = 2048
 
@@ -104,7 +106,7 @@ network_load_balancer_ips = [
 ############################
 
 # -- OpenCTI -- #
-opencti_version                      = "5.3.8"
+opencti_version                      = "5.10.3"
 public_opencti_access_logs_s3_prefix = "opencti-access-logs"
 # -- OpenCTI Platform -- #
 opencti_platform_port                  = 4000
@@ -112,7 +114,7 @@ opencti_platform_service_desired_count = 1
 # OpenCTI Platform autoscaling is not setup as part of this deployment, but can be setup quickly with Step Scaling or Target Tracking.
 opencti_platform_service_max_count = 1
 opencti_platform_service_min_count = 1
-opencti_platform_admin_email       = "test-opencti@opencti.com"
+opencti_platform_admin_email       = "first.last@email.com"
 opencti_logging_level              = "error"
 opencti_platform_cpu_size          = 2048
 opencti_platform_memory_size       = 4096
@@ -128,5 +130,5 @@ opencti_worker_memory_size           = 512
 opencti_connector_names = [
   "external-import-opencti",
   "external-import-mitre",
-  "external-import-cve"
+  "external-import-cve",
 ]

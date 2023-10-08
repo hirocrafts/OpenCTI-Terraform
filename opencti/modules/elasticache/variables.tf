@@ -44,6 +44,11 @@ variable "elasticache_instance_type" {
   description = "The instance type to host Elasticache on."
 }
 
+variable "elasticache_node_groups_count" {
+  type        = string
+  description = "The number of Elasticache node groups (shards)."
+}
+
 variable "elasticache_replication_count" {
   type        = string
   description = "The number of replicated ElastiCache nodes."
@@ -51,6 +56,11 @@ variable "elasticache_replication_count" {
 variable "elasticache_redis_version" {
   type        = string
   description = "The Redis version to be used for AWS ElastiCache."
+}
+
+variable "elasticache_parameter_group_name" {
+  type        = string
+  description = "the Redis parameter group name to be used for AWS Elasticache."
 }
 
 variable "elasticache_redis_port" {

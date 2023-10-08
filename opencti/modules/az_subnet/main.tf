@@ -16,7 +16,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_eip" "this" {
-  vpc              = true
+  domain           = "vpc"
   public_ipv4_pool = "amazon"
 }
 resource "aws_nat_gateway" "this" {

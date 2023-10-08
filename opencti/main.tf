@@ -155,7 +155,9 @@ module "elasticache" {
   secrets_manager_recovery_window = var.secrets_manager_recovery_window
   # -- Redis -- #
   elasticache_instance_type                  = var.elasticache_instance_type
+  elasticache_node_groups_count              = var.elasticache_node_groups_count
   elasticache_replication_count              = var.elasticache_replication_count
+  elasticache_parameter_group_name           = var.elasticache_parameter_group_name
   elasticache_redis_port                     = var.elasticache_redis_port
   elasticache_redis_version                  = var.elasticache_redis_version
   elasticache_redis_snapshot_retention_limit = var.elasticache_redis_snapshot_retention_limit
